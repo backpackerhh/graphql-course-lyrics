@@ -20,6 +20,7 @@ const Root = () => {
         <div className="container">
           <Switch>
             <Route path="/" exact component={SongList} />
+            <Route path="/songs/new" exact component={SongCreate} />
           </Switch>
         </div>
       </Router>
