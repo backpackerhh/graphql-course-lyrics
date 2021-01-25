@@ -7,7 +7,11 @@ const SongList = ({ data }) => {
 
   const renderSongs = () => {
     return songs.map((song) => {
-      return <li key={song.id}>{song.title}</li>;
+      return (
+        <li key={song.id} className="collection-item">
+          {song.title}
+        </li>
+      );
     });
   };
 
@@ -15,7 +19,7 @@ const SongList = ({ data }) => {
     return <div>Loading...</div>;
   }
 
-  return <ul>{renderSongs()}</ul>;
+  return <ul className="collection">{renderSongs()}</ul>;
 };
 
 const query = gql`
