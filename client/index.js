@@ -8,7 +8,19 @@ import SongList from "./components/SongList";
 import SongCreate from "./components/SongCreate";
 
 const client = new ApolloClient({
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    typePolicies: {
+      Query: {
+        fields: {
+          songs: {
+            merge(existing, incoming) {
+              return incoming;
+            },
+          },
+        },
+      },
+    },
+  }),
   uri: "http://localhost:4000/graphql",
 });
 const history = createHashHistory();
