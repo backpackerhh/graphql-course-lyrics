@@ -7,6 +7,8 @@ import { createHashHistory } from "history";
 import SongList from "./components/SongList";
 import SongCreate from "./components/SongCreate";
 
+import "./style/style.css";
+
 const client = new ApolloClient({
   cache: new InMemoryCache({
     typePolicies: {
