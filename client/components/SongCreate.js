@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import { Link, useHistory } from "react-router-dom";
 
+import GoBack from "./GoBack";
 import fetchSongsQuery from "../queries/fetchSongs";
 import createSongMutation from "../mutations/createSong";
 
@@ -25,9 +26,7 @@ const SongCreate = () => {
 
   return (
     <div>
-      <Link to="/" className="btn btn-medium">
-        Back
-      </Link>
+      <GoBack to="/" />
 
       <h1>Create a new song</h1>
 

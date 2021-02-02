@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 
+import GoBack from "./GoBack";
 import fetchSongQuery from "../queries/fetchSong";
 
 const SongDetail = () => {
@@ -22,6 +23,8 @@ const SongDetail = () => {
 
   return (
     <div>
+      <GoBack to="/" />
+
       <h1>{data.song.title}</h1>
     </div>
   );
