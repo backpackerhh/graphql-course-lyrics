@@ -6,6 +6,7 @@ import { createHashHistory } from "history";
 
 import SongList from "./components/SongList";
 import SongCreate from "./components/SongCreate";
+import SongDetail from "./components/SongDetail";
 
 import "./style/style.css";
 
@@ -35,6 +36,7 @@ const Root = () => {
           <Switch>
             <Route path="/" exact component={SongList} />
             <Route path="/songs/new" exact component={SongCreate} />
+            <Route path="/songs/:songId" exact component={SongDetail} />
           </Switch>
         </div>
       </Router>
