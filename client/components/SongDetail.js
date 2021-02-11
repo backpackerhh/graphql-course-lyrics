@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 
+import LyricList from "./LyricList";
 import LyricCreate from "./LyricCreate";
 import GoBack from "./GoBack";
 import fetchSongQuery from "../queries/fetchSong";
@@ -30,6 +31,7 @@ const SongDetail = () => {
 
       <h1>{song.title}</h1>
 
+      <LyricList lyrics={song.lyrics} />
       <LyricCreate songId={song.id} />
     </div>
   );
