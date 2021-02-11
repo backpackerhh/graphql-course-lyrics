@@ -6,8 +6,18 @@ import likeLyricMutation from "../mutations/likeLyric";
 const LyricList = ({ lyrics }) => {
   const [likeLyric, { data }] = useMutation(likeLyricMutation);
 
-  const handleLike = (id) => {
-    likeLyric({ variables: { id } });
+  const handleLike = (id, likes) => {
+    likeLyric({
+      variables: { id },
+      optimisticResponse: {
+        __typename: "Mutation",
+        likeLyric: {
+          id,
+          __typename: "LyricType",
+          likes: likes + 1,
+        },
+      },
+    });
   };
 
   const renderLyrics = () => {
@@ -17,7 +27,7 @@ const LyricList = ({ lyrics }) => {
           {lyric.content}
 
           <div className="vote-box">
-            <i className="material-icons" onClick={() => handleLike(lyric.id)}>
+            <i className="material-icons" onClick={() => handleLike(lyric.id, lyric.likes)}>
               thumb_up
             </i>
 
