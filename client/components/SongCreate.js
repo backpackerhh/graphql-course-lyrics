@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { Link, useHistory } from "react-router-dom";
 
 import GoBack from "./GoBack";
